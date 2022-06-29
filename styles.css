@@ -46,9 +46,11 @@
 
 .logo {
     width: 250px;
-    margin-left: 485px;
+    /* margin-left: 485px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 .logincontent {
 text-align: center;
 /* background-color: white; */
