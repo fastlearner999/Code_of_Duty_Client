@@ -3,32 +3,45 @@
     /* background-color: #ADFF2F; */
 }
 
+a {
+    all: unset;
+}
 
+/* header  */
 .top {
     color: #ADFF2F;
     background-color: #ADFF2F;
     height: 40px;
 }
 
+/* footer */
 .bottom {
     color: #ADFF2F;
     background-color: #ADFF2F;
     height: 40px;
 }
 
-.inputs {
-    width: 300px;
-    /* margin-left: 400px; */
-    height: 30px;
-    background-color: white;
-}
 
-a > #btnone {
-   margin-left: 25%;
+/* tooggle dark-mode */
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+
+
+/*** buttons starts ***/
+
+#btn-dark-mode{
+    margin-bottom: 6%;
+    padding: 0.3%;
     background-color: #ADFF2F;
     color: black;
-    /* background-color: white;
-    color: white; */
+}
+.buttonone {
+    margin-left: 28%;
+    background-color: #ADFF2F;
+    color: black;
 }
 
 .buttontwo {
@@ -44,6 +57,7 @@ a > #btnone {
     background-color: #ADFF2F;
     color: black;
 }
+/***** buttons finish ******/
 
 .logo {
     width: 250px;
@@ -52,12 +66,25 @@ a > #btnone {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* form inputs */
+.inputs {
+    width: 300px;
+    /* margin-left: 400px; */
+    height: 30px;
+    background-color: white;
+}
+
+
+/* google recaptcha div */
+
 #html_element{
     width: 250px ;
     /* margin-left: auto ;
     margin-right: auto; */
 }
 
+/* parent div to form, button and logo */
 .logincontent {
     display: flex;
    
@@ -65,6 +92,11 @@ a > #btnone {
     align-items: center;
     /* background-color: white; */
 }
+
+
+
+
+
 
 /*
 body {
