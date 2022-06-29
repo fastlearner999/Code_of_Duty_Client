@@ -77,11 +77,11 @@ function deleteHabit(e) {
 // Update Habit 
 
 
-
+/*
 _e('btn').addEventListener('click', function() {
   _e('demo').innerHTML = '';
 }, false);
-
+*/
 
 
 addHabits.addEventListener("submit", addHabit);
