@@ -113,3 +113,26 @@
     justify-content: space-evenly;
     flex-direction: row;
   }
+
+
+
+  /* experiment dark-mode start */
+  #btn-dark-mode{
+    margin-bottom: 6%;
+    padding: 4%;
+    background-color: #ADFF2F;
+    color: black;
+    
+    margin: 5px;
+    outline: 0;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* tooggle dark-mode */
+.dark-mode {
+  background-color: black;
+  /* color: white; */
+}
+
+/* experiment dark-mode end*/
