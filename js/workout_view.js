@@ -9,6 +9,10 @@ if (curPage.includes('workouts.html')) {
     async function getAllWorkouts() {
         try{
             let url = `${API_URL_BASE}/workout`;
+            let userId = localStorage.getItem("uid");
+            if (userId !== undefined && userId !== null && userId !== 0) {
+                url = `${API_URL_BASE}/workout/userId/${userId}`;
+            }
             const response = await fetch(url)
             const data = await response.json();
             data.forEach(workout => {
