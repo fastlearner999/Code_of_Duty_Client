@@ -36,6 +36,11 @@ if (curPage.includes('workouts.html')) {
         }
     }
     getAllWorkouts();
+
+    const addWorkoutButton = document.querySelector('#addWorkoutButton');
+    addWorkoutButton.addEventListener('click', ()=>{
+        window.location.replace(`./create_workout.html`);
+    });
 }
 
 if (curPage.includes('view_workout.html')) {
@@ -65,7 +70,7 @@ if (curPage.includes('view_workout.html')) {
             const editWorkoutButton = document.querySelector('#editWorkoutButton');
             editWorkoutButton.addEventListener('click', ()=>{
                 window.location.replace(`./edit_workout.html?id=${data.id}`);
-            })
+            });
         } catch(err) {
             return({message: err.message})
         }
