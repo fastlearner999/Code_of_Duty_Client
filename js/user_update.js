@@ -1,9 +1,9 @@
 // ThiS JS FILE IS DESIGNED FOR:
-// - edit_profile.html
+// - profile_update.html
 
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
-if (curPage.includes('edit_profile.html')) {
+if (curPage.includes('profile_update.html')) {
 	let userEditForm = document.querySelector("#edit-profile-form");
 	userEditForm.addEventListener('submit', async (e)=>{
 		e.preventDefault();

@@ -1,6 +1,6 @@
 // ThiS JS FILE IS DESIGNED FOR:
 // - workouts.html
-// - view_workout.html
+// - workout_view.html
 
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
@@ -32,7 +32,7 @@ if (curPage.includes('workouts.html')) {
                 listTag.appendChild(div);
                 
                 div.addEventListener('click', ()=>{
-                    window.location.replace(`./view_workout.html?id=${workout.id}`);
+                    window.location.replace(`./workout_view.html?id=${workout.id}`);
                 })
             });
         }catch(err){
@@ -43,18 +43,17 @@ if (curPage.includes('workouts.html')) {
 
     const addWorkoutButton = document.querySelector('#addWorkoutButton');
     addWorkoutButton.addEventListener('click', ()=>{
-        window.location.replace(`./create_workout.html`);
+        window.location.replace(`./workout_create.html`);
     });
 }
 
-if (curPage.includes('view_workout.html')) {
+if (curPage.includes('workout_view.html')) {
     let workoutId = getId();
     async function getWorkoutById(workoutId) {
         try{
             let url = `${API_URL_BASE}/workout/${workoutId}`;
             const response = await fetch(url)
             const data = await response.json();
-            console.log(data);
 
             const sportType = document.querySelector('#sportType');
             sportType.textContent = "Sport Type: " + data.sport_type;
@@ -71,9 +70,15 @@ if (curPage.includes('view_workout.html')) {
             const workoutDetails = document.querySelector('#workoutDetails');
             workoutDetails.textContent = "Worked: " + data.total_distance + data.total_distance_unit;
 
+            const createDate = document.querySelector('#createDate');
+            createDate.textContent = "Crated Date: " + data.create_date;
+
+            const updateDate = document.querySelector('#updateDate');
+            updateDate.textContent = "Updated Date: " + replaceNull(data.update_date);
+
             const editWorkoutButton = document.querySelector('#editWorkoutButton');
             editWorkoutButton.addEventListener('click', ()=>{
-                window.location.replace(`./edit_workout.html?id=${data.id}`);
+                window.location.replace(`./workout_update.html?id=${data.id}`);
             });
         } catch(err) {
             return({message: err.message})
@@ -94,4 +99,11 @@ function getId() {
         }
     });
     return id;
+}
+
+function replaceNull(val) {
+    if (val === null) {
+        return "";
+    } 
+    return val;
 }

@@ -1,4 +1,11 @@
+// ThiS JS FILE IS DESIGNED FOR:
+// - goal_create.html
+
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
+const curPage = window.location.pathname;
+if (curPage.includes('goal_create.html')) {
+
+}
 
 const addNewGoal = async (e) => {
   e.preventDefault()

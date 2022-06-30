@@ -1,9 +1,9 @@
 // ThiS JS FILE IS DESIGNED FOR:
-// - create_profile.html
+// - profile_create.html
 
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
-if (curPage.includes('create_profile.html')) {
+if (curPage.includes('profile_create.html')) {
 	let userSignUpForm = document.querySelector("#sign-up-form");
 	userSignUpForm.addEventListener('submit', async (e)=>{
 		e.preventDefault();

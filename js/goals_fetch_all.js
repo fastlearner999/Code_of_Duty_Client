@@ -32,7 +32,7 @@ async function fetchAllGoals(){
             goals_insert.appendChild(goal_div)  
             
             goal_div.addEventListener('click', ()=>{
-                window.location.replace(`./view_goal.html?id=${element.id}`);
+                window.location.replace(`./goal_view.html?id=${element.id}`);
             })
         });
 

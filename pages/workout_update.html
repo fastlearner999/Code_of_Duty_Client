@@ -8,7 +8,6 @@
     <link href="../css/styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
   <script defer src="../js/workout_update.js"></script>
 </head>
@@ -16,7 +15,7 @@
 
     <p class="top">Top</p><br><br>
 
-    <a href="./edit_profile.html"><b>Your profile</b></a> / 
+    <a href="./profile_update.html"><b>Your profile</b></a> / 
     <a href="./goals.html"><b>Your goals</b></a> / 
     <a href="./workouts.html"><b>Your workouts</b></a>
 
@@ -26,6 +25,8 @@
     <hr>
     
     <div class="workouts"> 
+      <input id="id" name="id" type="number" hidden>
+      
       <label for="sportType"> Sport Type:</label>
       <select id="sportType" name="sportType">
         <option value="running" selected>Running</option>
@@ -56,7 +57,6 @@
       </select>
       <br><br> 
   
-  
       <label for="totalDuration">Total Duration:</label>
       <input id="totalDuration" name="totalDuration" type="number" placeholder="0">
       <select id="totalDurationUnit" name="totalDurationUnit">
@@ -64,6 +64,12 @@
         <option value="hour">hours</option>
       </select>
       <br><br> 
+
+      <label for="createDate">Create Date:</label>
+      <input id="createDate" name="createDate" type="text" disabled><br><br>
+
+      <label for="updateDate">Update Date:</label>
+      <input id="updateDate" name="updateDate" type="text" disabled><br><br>
   
     <button id="saveWorkoutButton">Save</button><button id="deleteWorkoutButton">Delete workout</button>
   
