@@ -3,9 +3,11 @@ const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
 
 async function fetchAllGoalsByUser(userId){
+    
     try{
         let url = `${API_URL_BASE}/goal/user/${userId}`
         
+        let userId = localStorage.getItem("uid");
         // habits/user/userId
         const response = await fetch('https://energize-code-of-duty.herokuapp.com/goal')
         const data = await response.json()
