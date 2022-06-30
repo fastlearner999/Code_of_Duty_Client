@@ -14,6 +14,11 @@ if (curPage.includes('create_profile.html')) {
 			alert('Please input a valid email format.');
 			return;
 		}
+
+		if (email.length < 9) {
+			alert('Your email is too short.');
+			return;
+		}
 	
 		let password1 = document.querySelector("#password1").value;
 		let password2 = document.querySelector("#password2").value;
@@ -22,14 +27,19 @@ if (curPage.includes('create_profile.html')) {
 			return;
 		}
 
+		if (password1.length < 8) {
+			alert('Your password is too short.');
+			return;
+		}
+
 		let first_name = document.querySelector("#firstname").value;
-		if (first_name.length > 2) {
+		if (first_name.length < 2) {
 			alert('Your first name is too short.');
 			return;
 		}
 
 		let last_name = document.querySelector("#lastname").value;
-		if (last_name.length > 2) {
+		if (last_name.length < 2) {
 			alert('Your last name is too short.');
 			return;
 		}
@@ -55,8 +65,10 @@ if (curPage.includes('create_profile.html')) {
 			},
 			body: JSON.stringify(user)
 		});
-		const responseBody = await res.json();
-		console.log(responseBody);
+		const resBody = await res.json();
+		if (resBody !== undefined && 'id' in resBody) {
+			window.location.href = 'goals.html';
+		}
 	});
 }
 
