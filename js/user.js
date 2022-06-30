@@ -1,6 +1,7 @@
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
-
 const curPage = window.location.pathname;
+
+
 if (curPage.includes('create_profile.html')) {
 	let userSignUpForm = document.querySelector("#sign-up-form");
 	userSignUpForm.addEventListener('submit', async (e)=>{
@@ -78,6 +79,25 @@ if (curPage.includes('login.html')) {
 	userLoginForm.addEventListener('submit', async (e)=>{
 		e.preventDefault();
 
+		let email = document.querySelector("#email").value;
+		let password = document.querySelector("#password").value;
+
+		let newLogin = {
+			email: email,
+			password: password
+		};
+		const res = await fetch(API_URL_BASE + '/user/login', {		
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(newLogin)
+		});
+		const resBody = await res.json();
+		if (resBody !== undefined && 'id' in resBody) {
+			window.location.href = 'goals.html';
+		}
 	});
 }
 
