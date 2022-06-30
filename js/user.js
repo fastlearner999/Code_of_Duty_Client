@@ -1,3 +1,5 @@
+const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
+
 const curPage = window.location.pathname;
 if (curPage.includes('create_profile.html')) {
 	let userSignUpForm = document.querySelector("#sign-up-form");
@@ -19,30 +21,42 @@ if (curPage.includes('create_profile.html')) {
 			alert('Your password is not match.');
 			return;
 		}
+
+		let first_name = document.querySelector("#firstname").value;
+		if (first_name.length > 2) {
+			alert('Your first name is too short.');
+			return;
+		}
+
+		let last_name = document.querySelector("#lastname").value;
+		if (last_name.length > 2) {
+			alert('Your last name is too short.');
+			return;
+		}
 	
 		let agree = document.querySelector("#agree").checked;
 		if (!agree) {
 			alert('You must agree the terms & conditions.');
 			return;
 		}
-		/*
-		let input = {
+		
+		let user = {
 				email: email,
-				password: document.querySelector("#password").value,
-				first_name: document.querySelector("#firstname").value,
-				last_name: document.querySelector("#lastname").value,
+				password: password1,
+				first_name: first_name,
+				last_name: last_name,
 				gender: document.querySelector("#gender").value
 			};
-		const res = await fetch('https://energize-code-of-duty.herokuapp.com/user', {		
+		const res = await fetch(API_URL_BASE + '/user', {		
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(input)
+			body: JSON.stringify(user)
 		});
 		const responseBody = await res.json();
-		*/
+		console.log(responseBody);
 	});
 }
 
