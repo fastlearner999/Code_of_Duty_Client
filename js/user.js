@@ -1,3 +1,8 @@
+// ThiS JS FILE IS DESIGNED FOR:
+// - create_profile.html
+// - edit_profile.html
+// - login.html
+
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
 
