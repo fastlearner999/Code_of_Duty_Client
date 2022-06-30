@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <script defer src="../js/login.js"></script>
+</head>
+<body>
+
+    <p class="top">Top</p><br><br>
+
+    <img class="logo" src="../images/Code of Duty.png"><br><br>
+
+    <hr>
+<div class="sort">
+
+    <h3>EDIT WORKOUTS</h3>
+
+    <label for="sort">Sort by:</label>
+
+    <select name="sort" id="sort">
+    <option value="date">Date</option>
+    <option value="Sport">Sport</option>
+    <!-- <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option> -->
+    </select>
+    </div>
+
+<br></br>
+
+<div class="workoutdate" id="workoutdates">
+    <br>
+
+    <label for="sort">Day</label>
+
+<select name="day" id="day">
+  <option value="1">1</option>
+  <option value="2">2</option>
+</select>
+
+<label for="sort">Month</label>
+
+<select name="month" id="month">
+  <option value="January">January</option>
+  <option value="February">February</option>
+</select>
+
+<label for="sort">Year</label>
+
+<select name="year" id="year">
+  <option value="2022">2022</option>
+  <option value="2021">2021</option>
+</select>
+
+<p>24th June 2022</p>
+
+</div>
+
+<br><br>
+
+<div class="workouts"> 
+
+
+        <form action="">
+
+            <label for="sport-type">Sport Type</label>
+
+            <select name="sport-type" id="sport-type">
+              <option value="running">running</option>
+              <option value="swimming">swimming</option>
+              <option value="cycling">cycling</option>
+              <option value="yoga">yoga</option>
+            </select>
+
+            <br><br>
+            
+            <label for="start-time">Start Time:</label>
+            <input type="date" id="start-time" name="start-time"><br><br>
+            
+        
+           
+            <label for="end-time">End Time:</label>
+            <input type="date" id="end-time" name="end-time"><br><br> 
+            
+            
+            
+            <label for="break-time">Break Time:</label>
+        <input type="text" id="break-time" name="break-time"><br><br>
+        
+    
+        <label for="total-distance"> Total Distance:</label>
+        <input type="text" id="total-distance" name="total-distance">
+        
+        <label for="sport-type"></label>
+            <select name="sport-type" id="sport-type">
+              <option value="running">Km</option>
+              <option value="swimming">Miles</option>
+            </select>
+        <br><br>
+        
+        <label for="duration">Total Duration:</label>
+        <input type="text" id="duration" name="duration"><br><br> 
+        
+        <label for="duration-unit">Total Duration Unit:</label>
+                <input type="text" id="duration-unit" name="duration-unit"><br><br>
+</form>
+    
+</div>
+
+<br><br><br><br>
+
+<p class="bottom">Bottom</p>
