@@ -6,6 +6,18 @@ if (curPage.includes('create_profile.html')) {
 	userSignUpForm.addEventListener('submit', async (e)=>{
 		e.preventDefault();
 	
+		let first_name = document.querySelector("#firstname").value;
+		if (first_name.length < 2) {
+			alert('Your first name is too short.');
+			return;
+		}
+
+		let last_name = document.querySelector("#lastname").value;
+		if (last_name.length < 2) {
+			alert('Your last name is too short.');
+			return;
+		}
+
 		let email = document.querySelector("#email").value;
 		if (!email.toLowerCase()
 		.match(
@@ -29,18 +41,6 @@ if (curPage.includes('create_profile.html')) {
 
 		if (password1.length < 8) {
 			alert('Your password is too short.');
-			return;
-		}
-
-		let first_name = document.querySelector("#firstname").value;
-		if (first_name.length < 2) {
-			alert('Your first name is too short.');
-			return;
-		}
-
-		let last_name = document.querySelector("#lastname").value;
-		if (last_name.length < 2) {
-			alert('Your last name is too short.');
 			return;
 		}
 	
