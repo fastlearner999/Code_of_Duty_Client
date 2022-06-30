@@ -29,6 +29,7 @@ if (curPage.includes('login.html')) {
         	const payload = jwt_decode(resBody.token);
 			localStorage.setItem('token', resBody.token);
 			localStorage.setItem('email', payload.email);
+			localStorage.setItem('uid', payload.id);
 			window.location.href = 'goals.html';
 		}
 	});
