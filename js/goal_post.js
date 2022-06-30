@@ -10,9 +10,9 @@ const addNewGoal = async (e) => {
         start_date: document.querySelector('#start_date').value,
         end_date: document.querySelector('#end_date').value,
         target_distance: document.querySelector('#target_distance').value,
-        target_distance_unit: document.querySelector('#target_distance_uni').value
+        target_distance_unit: document.querySelector('#target_distance_unit').value
   }
-  const res = await fetch(API_URL_BASE + '/goal', {		
+  const res = await fetch(`API_URL_BASE/goal`, {		
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -21,9 +21,9 @@ const addNewGoal = async (e) => {
     body: JSON.stringify(goalData)
   });
   const resBody = await res.json();
+  console.log(resBody)
   if (resBody !== undefined && 'id' in resBody) {
     // window.location.href = 'goals.html';
-    console.log(resBody)
     }
   };
 

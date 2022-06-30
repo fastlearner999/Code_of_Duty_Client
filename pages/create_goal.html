@@ -50,6 +50,15 @@
           <option value='walking'></option>
           <option value='custom'></option>
         </datalist>
+        
+     
+        <input
+          id="period"
+          type="number"
+          name="period"
+          placeholder="# of Repetitions"
+          min="1"
+          required
         />
         <input 
         id='period_type' name='period_type' type='text' required list='period_types' />
@@ -59,31 +68,9 @@
           <option value='month'></option>
           <option value='year'></option>
         </datalist>
-        />
-        <input
-          id="period"
-          type="number"
-          name="period"
-          placeholder="# of Repetitions"
-          min="1"
-          required
-        />
         
-        <input
-          id="target_distance"
-          type="number"
-          name="distance"
-          placeholder="Enter Goal Distance in Kilometers"
-          min="1"
-          required
-        />
-        <input
-        id="target_distance_unit"
-        type="text"
-        name="distance"
-        placeholder="Enter Goal Distance Metric"
-        required
-        />
+        
+        
         <input
         id="start_date"
         type="text"
@@ -98,6 +85,22 @@
         placeholder="Enter End Date"
         required
         />
+
+        <input
+          id="target_distance"
+          type="number"
+          name="distance"
+          placeholder="Enter Goal Distance in Kilometers"
+          min="1"
+          required
+        />
+        <input
+        id="target_distance_unit"
+        type="text"
+        name="distance"
+        placeholder="Enter Goal Distance Metric"
+        required
+        
 
       <br><br>
 
