@@ -4,9 +4,13 @@
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
 if (curPage.includes('profile_update.html')) {
+	let userId = localStorage.getItem("uid");
+	if (userId === undefined || userId === null || userId === 0) {
+		alert('Please login first');
+		window.location.href = 'login.html';
+	}
 	async function getProfileById() {
         try{
-			let userId = localStorage.getItem("uid");
             let url = `${API_URL_BASE}/user/${userId}`;
             const res1 = await fetch(url)
             const data = await res1.json();
