@@ -18,7 +18,7 @@ if (curPage.includes('workouts.html')) {
                 // creating goals card
                 const div = document.createElement('div')
                 const title = document.createElement('h4')
-                title.textContent = workout.sport_type;
+                title.textContent = workout.sport_type + ' / ' + workout.start_time + ' / ' + workout.end_time + ' / ' + workout.break_duration + ' / ' + workout.total_distance + ' / ' + workout.total_distance_unit;
                 
                 // styling created elements
                 div.classList = 'goal-div'
