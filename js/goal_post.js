@@ -25,3 +25,5 @@ const addNewGoal = async () => {
     console.log(resBody)
     }
   };
+
+  document.addEventListener("submit", addNewGoal);
