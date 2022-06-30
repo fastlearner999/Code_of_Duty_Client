@@ -7,9 +7,12 @@ if (curPage.includes('edit_workout.html')) {
 
     const deleteWorkoutButton = document.querySelector('#deleteWorkoutButton');
     deleteWorkoutButton.addEventListener('click', ()=>{
-        //TODO
-        alert('Workout deleted');
-        window.location.replace(`./workouts.html`);
+        let confirmToDelete = confirm("Are you sure to delete?");
+        if (confirmToDelete) {
+            //TODO
+            alert('Workout deleted');
+            window.location.replace(`./workouts.html`);
+        } 
     });
     
     const saveWorkoutButton = document.querySelector('#saveWorkoutButton');
