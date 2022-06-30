@@ -32,22 +32,66 @@
 
       <br><br>
 
-      <form class="add-habit">
+      <form class="goal_name">
         <input
-          class="habit"
+          class="goal_name"
           type="text"
-          name="habit"
-          placeholder="Enter Habit Name"
+          name="goal"
+          placeholder="Enter Goal Name"
           required
+        />
+        <input 
+        id='sport-type' name='sport-type' type='text' required list='sport-categories' />
+        <datalist id='sport-categories'>
+          <option value='running'></option>
+          <option value='cycling'></option>
+          <option value='swimming'></option>
+        </datalist>
+        />
+        <input 
+        id='period_type' name='period_type' type='text' required list='period_types' />
+        <datalist id='period_types'>
+          <option value="Daily"></option>
+          <option value='Weekly'></option>
+          <option value='Monthly'></option>
+          <option value='Yearly'></option>
+        </datalist>
         />
         <input
           type="number"
-          name="reps"
+          name="period"
           placeholder="# of Repetitions"
           min="1"
           required
         />
         <input
+          class="distance"
+          type="number"
+          name="distance"
+          placeholder="Enter Goal Distance in Kilometers"
+          min="1"
+          required
+        />
+        <input
+        class="start_date"
+        type="date"
+        name="start_date"
+        placeholder="Enter Start Date"
+        required
+        />
+        <input
+        class="end_date"
+        type="date"
+        name="end_date"
+        placeholder="Enter End Date"
+        required
+        />
+        <input
+        class="distance"
+        type="number"
+        name="distance"
+        placeholder="Enter Goal Distance in Kilometers"
+        min="1"
         type="number"
         name="reps"
         placeholder="# of Repetitions"
@@ -74,15 +118,6 @@
 
       <br><br>
 
-        <div class="frequency">
-          <label for="timeframe">Frequency: </label>
-          <select name="timeframe" id="timeframe">
-            <option value="Daily">Daily</option>
-            <option value="Weekly">Weekly</option>
-            <option value="Monthly">Monthly</option>
-            <option value="Yearly">Yearly</option>
-          </select>
-        </div>
         <br>
         <input type="submit" value="+ Add Habit" />
       </form>
