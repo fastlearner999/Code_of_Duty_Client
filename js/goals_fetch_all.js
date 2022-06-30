@@ -17,10 +17,16 @@ async function fetchAllGoals(){
 
             // creating goals card
             const goal_div = document.createElement('div')
-
             const goal_title = document.createElement('h4')
 
+            // set created elements attributes/text conent
             goal_title.textContent = element.goal_name
+            
+            // styling created elements
+            goal_div.classList = 'goal-div'
+            goal_title.classList = 'goal-title'
+            
+            
             goal_div.appendChild(goal_title)
             
             goals_insert.appendChild(goal_div)  
