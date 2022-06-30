@@ -4,6 +4,26 @@
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 const curPage = window.location.pathname;
 if (curPage.includes('profile_update.html')) {
+	async function getProfileById() {
+        try{
+			let userId = localStorage.getItem("uid");
+            let url = `${API_URL_BASE}/user/${userId}`;
+            const res1 = await fetch(url)
+            const data = await res1.json();
+            document.querySelector('#firstName').value = data.first_name;
+            document.querySelector('#lastName').value = data.last_name;
+            document.querySelector('#email').value = data.email;
+            document.querySelector('#password1').value = data.password;
+            document.querySelector('#password2').value = data.password;
+            document.querySelector('#gender').value = data.gender;
+            document.querySelector('#createDate').textContent = "Created Date: " + data.create_date;
+            document.querySelector('#updateDate').textContent = "Updated Date: " + replaceNull(data.update_date);
+        } catch(err) {
+            return({message: err.message})
+        }
+    }
+    getProfileById();
+
 	let userEditForm = document.querySelector("#edit-profile-form");
 	userEditForm.addEventListener('submit', async (e)=>{
 		e.preventDefault();
@@ -47,7 +67,7 @@ if (curPage.includes('profile_update.html')) {
 		}
 
 		let existUser = {
-			id: document.querySelector("#id").value,
+			id: localStorage.getItem("uid"),
 			email: email,
 			password: password1,
 			first_name: first_name,
@@ -67,4 +87,11 @@ if (curPage.includes('profile_update.html')) {
 			window.location.href = 'goals.html';
 		}
 	});
+}
+
+function replaceNull(val) {
+    if (val === null) {
+        return "";
+    } 
+    return val;
 }
