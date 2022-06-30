@@ -1,28 +1,28 @@
-const addHabits = document.querySelector(".add-habit");
+// const addHabits = document.querySelector(".add-habit");
 const habitsList = document.querySelector(".habits");
-const habits = JSON.parse(localStorage.getItem("habits")) || [];
+// const habits = JSON.parse(localStorage.getItem("habits")) || [];
 
-// add habit
+// // add habit
 
-function addHabit(e) {
-  e.preventDefault();
-  const text = this.querySelector("[name=habit]").value;
-  const totalCounts = +this.querySelector("[name=reps]").value;
-  const timeframe = this.querySelector("[name=timeframe]").value;
-  const habit = {
-    text: text,
-    reps: 0,
-    totalCounts: totalCounts,
-    timeframe: timeframe,
-    completed: false,
-  };
+// function addHabit(e) {
+//   e.preventDefault();
+//   const text = this.querySelector("[name=habit]").value;
+//   const totalCounts = +this.querySelector("[name=reps]").value;
+//   const timeframe = this.querySelector("[name=timeframe]").value;
+//   const habit = {
+//     text: text,
+//     reps: 0,
+//     totalCounts: totalCounts,
+//     timeframe: timeframe,
+//     completed: false,
+//   };
 
-  habits.push(habit);
-  listHabits(habits, habitsList);
-  localStorage.setItem("habits", JSON.stringify(habits));
-  this.reset();
-  console.log(habit);
-}
+//   habits.push(habit);
+//   listHabits(habits, habitsList);
+//   localStorage.setItem("habits", JSON.stringify(habits));
+//   this.reset();
+//   console.log(habit);
+// }
 
 // list all habits
 
@@ -84,8 +84,8 @@ _e('btn').addEventListener('click', function() {
 */
 
 
-addHabits.addEventListener("submit", addHabit);
+// addHabits.addEventListener("submit", addHabit);
 habitsList.addEventListener("click", toggleCompleted);
 habitsList.addEventListener("click", deleteHabit);
 
-listHabits(habits, habitsList);
+// listHabits(habits, habitsList);
