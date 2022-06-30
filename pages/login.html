@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link href="../css/styles.css" rel="stylesheet">
     <title>Login</title>
+    <script defer src="../js/login.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+            'sitekey' : "6LfXLK8gAAAAABjmN3XQcsAznRStuwIUizd_Cqgr"
+        });
+        };
+    </script>
+    <script defer src="../js/darkmode.js"></script>
 </head>
 <body>
     <p class="top">Top</p>
-    <br><br>
-
-   
-
-    <img class="logo" src="../images/Code of Duty.png"><br><br>
-
-<div class="logincontent">
-<input type="text" id="email" class="inputs" placeholder="Email address"><br><br>
-<input type="password" id="password" class="inputs" placeholder="Password"><br><br><br>
-
-<a href=""><button class="buttonthree"><p>Log in</p></button></a>
-</div>
+    <div class="logincontent">
+        <button id="btn-dark-mode">Toggle dark mode</button>
+        <img class="logo" src="../images/Code of Duty.png"><br><br>
+        <h1>Login</h1>
+        <form id="form">
+            <input type="text" id="email" class="inputs" placeholder="Email address"><br><br>
+            <input type="password" id="password" class="inputs" placeholder="Password"><br><br><br>
+            <div class="" id="html_element" ></div>
+            <br/>
+            <a href=""><button class="buttonthree"><p>Log in</p></button></a>
+        </form>
+        <a href="./create_profile.html"><button id="btnone" class="buttonone"><p>Sign up</p></button></a>
+    </div>
 <br><br><br><br>
 <p class="bottom">Bottom</p>
 </body>

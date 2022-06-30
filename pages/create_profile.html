@@ -17,6 +17,15 @@
         };
       </script>
         <script defer src="../js/darkmode.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+            'sitekey' : "6LfXLK8gAAAAABjmN3XQcsAznRStuwIUizd_Cqgr"
+        });
+        };
+    </script>
+    <script defer src="../js/darkmode.js"></script>
 </head>
 <body>
 
@@ -42,6 +51,32 @@
 		<a href=""><button class="buttonthree"><p>Get Started</p></button></a>
 	</form>
 </div>
+
+    <div class="logincontent"> 
+        <button id="btn-dark-mode">Toggle dark mode</button>
+        <img class="logo" src="../images/Code of Duty.png"><br><br>
+        <h1>Sign-up</h1>
+        <form id="form">
+            <input type="text" id="firstname" class="inputs" placeholder="First Name" required><br><br>
+            <input type="text" id="lastname" class="inputs" placeholder="Last Name" required><br><br>
+            <input type="text" id="email" class="inputs" placeholder="Email address" required><br><br>
+            <input type="password" id="password" class="inputs" placeholder="Password" required><br><br>
+            <input type="password" id="passwordconf" class="inputs" placeholder="Re-enter Password" required><br><br><br>
+            <select name="gender" id="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="U" selected>Not preferred to say</option>
+            </select>
+            <br><br>
+            <input type="checkbox" id="agree" name="agree" value="agree"> I agree Terms & conditions
+            <br><br>
+            <!-- <div class="g-recaptcha"  data-sitekey="6LfXLK8gAAAAABjmN3XQcsAznRStuwIUizd_Cqgr"></div> -->
+            <div class="" id="html_element" ></div>
+            <br/>
+            <a href="#"><button class="buttonthree"><p>Get Started</p></button></a>
+        </form>
+        <a href="./login.html"><button class="buttontwo"><p>Log in</p></button></a>
+    </div>
 
 <br><br><br><br>
 
@@ -127,4 +162,4 @@ async defer>
 
 </div>
 </div>
-<!-- </div> -->
+</div> -->

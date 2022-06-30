@@ -92,6 +92,19 @@
         name="distance"
         placeholder="Enter Goal Distance in Kilometers"
         min="1"
+        type="number"
+        name="reps"
+        placeholder="# of Repetitions"
+        min="1"
+        required
+        />
+        <input 
+        id='sport-type' name='sport-type' type='text' required list='sport-categories' />
+          <datalist id='sport-categories'>
+            <option value='running'></option>
+            <option value='cycling'></option>
+            <option value='swimming'></option>
+          </datalist>
         required
         />
         <input
