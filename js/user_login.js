@@ -25,14 +25,11 @@ if (curPage.includes('login.html')) {
 		});
 		const resBody = await res.json();
 		if (resBody !== undefined && 'token' in resBody) {
-			console.log(resBody.token);
-			/*
 			// For localStorage
         	const payload = jwt_decode(resBody.token);
 			localStorage.setItem('token', resBody.token);
 			localStorage.setItem('email', payload.email);
 			window.location.href = 'goals.html';
-			*/
 		}
 	});
 }
