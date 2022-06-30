@@ -34,6 +34,8 @@
       <br><br>
 
       <form class="goal_name">
+
+        <label for="goal">goal name</label>
         <input
           id="goal_name"
           type="text"
@@ -41,7 +43,8 @@
           placeholder="Enter Goal Name"
           required
         />
-
+        <br>
+        <label for="sport-type">sport type</label>
         <input 
         id='sport_type' name='sport-type' type='text' required list='sport-categories'  placeholder="Enter Sport Type" />
         <datalist id='sport-categories'>
@@ -51,9 +54,9 @@
           <option value='walking'></option>
           <option value='custom'></option>
         </datalist>
-     
+        <br>
         
-        
+        <label for="period">period</label>
         <input
         id="period"
         type="number"
@@ -62,7 +65,9 @@
           min="1"
           required
           />
-         
+          <br>
+
+          <label for="period_type">period type</label>
         <input 
         id='period_type' name='period_type' type='text' required list='period_types' />
         <datalist id='period_types'>
@@ -71,25 +76,28 @@
           <option value='month'></option>
           <option value='year'></option>
         </datalist>
+        <br>
         
-        
-        
+        <label for="start_date">start date</label>
         <input
         id="start_date"
-        type="text"
+        type="date"
         name="start_date"
         placeholder="Enter Start Date"
         required
         />
-
+        <br>
+        
+        <label for="end_date">end date</label>
         <input
         id="end_date"
-        type="text"
+        type="date"
         name="end_date"
         placeholder="Enter End Date"
         required
         />
-
+        <br>
+        <label for="distance">distance</label>
         <input
           id="target_distance"
           type="number"
@@ -98,11 +106,13 @@
           min="1"
           required
         />
-
+        
+        <br>
+          <label for="distance-unit">distance unit</label>
         <input
         id="target_distance_unit"
         type="text"
-        name="distance"
+        name="distance-unit"
         placeholder="Enter Goal Distance Metric"
         required />
         
