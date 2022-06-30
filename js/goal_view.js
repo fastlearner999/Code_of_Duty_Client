@@ -1,5 +1,7 @@
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 
+const curPage = window.location.pathname;
+
 async function fetchAllGoalsByUser(userId){
     try{
         let url = `${API_URL_BASE}/goal/user/${userId}`
