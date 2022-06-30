@@ -140,6 +140,21 @@
     flex-direction: row;
   }
 
+  /* 
+            need to style appended goals elements
+  */
+
+  .goal-div {
+    padding: 1em;
+    border: 0.1em solid black;
+    margin-top: 0.2em;
+    cursor: pointer;
+    width: 100em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+
 
 
   /* experiment dark-mode start */
