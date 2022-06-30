@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/goals.css" />
     <script defer src="../js/app.js"></script>
     <script defer src="../js/darkmode.js"></script>
+    <script defer src="../js/goal_post.js"></script>
     <title>Habit Tracker</title>
   </head>
   <body>
@@ -34,14 +35,14 @@
 
       <form class="goal_name">
         <input
-          class="goal_name"
+          id="goal_name"
           type="text"
           name="goal"
           placeholder="Enter Goal Name"
           required
         />
         <input 
-        id='sport-type' name='sport-type' type='text' required list='sport-categories' />
+        id='sport_type' name='sport-type' type='text' required list='sport-categories' />
         <datalist id='sport-categories'>
           <option value='running'></option>
           <option value='cycling'></option>
@@ -58,6 +59,7 @@
         </datalist>
         />
         <input
+          id="period"
           type="number"
           name="period"
           placeholder="# of Repetitions"
@@ -66,7 +68,7 @@
         />
         
         <input
-          class="distance"
+          id="target_distance"
           type="number"
           name="distance"
           placeholder="Enter Goal Distance in Kilometers"
@@ -74,14 +76,21 @@
           required
         />
         <input
-        class="start_date"
+        id="target_distance_uni"
+        type="text"
+        name="distance"
+        placeholder="Enter Goal Distance Metric"
+        required
+        />
+        <input
+        id="start_date"
         type="date"
         name="start_date"
         placeholder="Enter Start Date"
         required
         />
         <input
-        class="end_date"
+        id="end_date"
         type="date"
         name="end_date"
         placeholder="Enter End Date"
