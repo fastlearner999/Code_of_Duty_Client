@@ -1,6 +1,7 @@
 const API_URL_BASE = 'https://energize-code-of-duty.herokuapp.com';
 
-const addNewGoal = async () => {
+const addNewGoal = async (e) => {
+  e.preventDefault()
   let goalData = {
         goal_name: document.querySelector('#goal_name').value,
         sport_type: document.querySelector('#sport_type').value,
@@ -9,7 +10,7 @@ const addNewGoal = async () => {
         start_date: document.querySelector('#start_date').value,
         end_date: document.querySelector('#end_date').value,
         target_distance: document.querySelector('#target_distance').value,
-        target_distance_uni: document.querySelector('#target_distance_uni').value
+        target_distance_unit: document.querySelector('#target_distance_uni').value
   }
   const res = await fetch(API_URL_BASE + '/goal', {		
     method: 'POST',
@@ -25,3 +26,5 @@ const addNewGoal = async () => {
     console.log(resBody)
     }
   };
+
+  document.addEventListener("submit", addNewGoal);
