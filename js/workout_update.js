@@ -50,8 +50,8 @@ async function saveWorkout() {
         break_duration: parseInt(document.querySelector("#breakDuration").value),
         total_distance: parseInt(document.querySelector("#totalDistance").value),
         total_distance_unit: document.querySelector("#totalDistanceUnit").value,
-        target_duration: parseInt(document.querySelector("#targetDuration").value),
-        target_duration_unit: document.querySelector("#targetDurationUnit").value
+        total_duration: parseInt(document.querySelector("#totalDuration").value),
+        total_duration_unit: document.querySelector("#totalDurationUnit").value
     };
     const res2 = await fetch(`${API_URL_BASE}/workout`, {		
         method: 'PUT',

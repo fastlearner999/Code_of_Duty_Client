@@ -22,6 +22,7 @@ if (curPage.includes('profile_update.html')) {
             document.querySelector('#gender').value = data.gender;
             document.querySelector('#createDate').textContent = "Created Date: " + data.create_date;
             document.querySelector('#updateDate').textContent = "Updated Date: " + replaceNull(data.update_date);
+			document.querySelector('#lastLogin').textContent = "Last Login: " + replaceNull(data.last_login);
         } catch(err) {
             return({message: err.message})
         }
