@@ -20,9 +20,14 @@ if (curPage.includes('goal_update.html')) {
     let goalId = getId();
     async function getGoalById(goalId) {
         try{
+            let listOfWorkout = await getWorkoutByUserId();
+
             let url = `${API_URL_BASE}/goal/${goalId}`;
             const res1 = await fetch(url)
             const data = await res1.json();
+
+            let progress = getGoalProgress(data, listOfWorkout);
+
             document.querySelector('#id').value = data.id;
             document.querySelector('#goalName').value = data.goal_name;
             document.querySelector('#sportType').value = data.sport_type;
@@ -32,6 +37,7 @@ if (curPage.includes('goal_update.html')) {
             document.querySelector('#endDate').value = data.end_date.substring(0, 10);
             document.querySelector('#targetDistance').value = data.target_distance;
             document.querySelector('#targetDistanceUnit').value = data.target_distance_unit;
+            document.querySelector('#yourProgress').value = progress*100;
             document.querySelector('#createDate').value = data.create_date;
             document.querySelector('#updateDate').value = replaceNull(data.update_date);
         } catch(err) {
@@ -118,4 +124,47 @@ function replaceNull(val) {
         return "";
     } 
     return val;
+}
+
+async function getWorkoutByUserId() {
+    try {
+        let url = `${API_URL_BASE}/workout`;
+        let userId = localStorage.getItem("uid");
+        if (userId !== undefined && userId !== null && userId !== 0) {
+            url = `${API_URL_BASE}/workout/userId/${userId}`;
+        }
+        const response = await fetch(url)
+        const data = await response.json();
+        return data;
+    } catch(err) {
+        return [];
+    }
+}
+
+function getGoalProgress(goal, listOfWorkout) {
+    let targetDistance = parseInt(convertToMile(goal.target_distance, goal.target_distance_unit));
+    let achivedDistance = 0;
+    listOfWorkout.forEach((curWorkout) => {
+        if (curWorkout.sport_type === goal.sport_type) {
+            let workourStartTime = Date.parse(curWorkout.start_time);
+            let workourEndTime = Date.parse(curWorkout.end_time);
+            let goalStartTime = Date.parse(goal.start_date);
+            let goalEndTime = Date.parse(goal.end_date);
+            if (workourStartTime > goalStartTime &&  workourEndTime < goalEndTime) {
+                achivedDistance = achivedDistance + convertToMile(curWorkout.total_distance, curWorkout.total_distance_unit);
+            }
+        }
+    });
+    if (targetDistance > 0 && achivedDistance > 0) {
+        return achivedDistance/targetDistance;
+    }
+    return 0;
+}
+
+function convertToMile(distance, unit) {
+    let result = distance;
+    if (unit === 'mile') {
+        result = result*1.61;
+    }
+    return result;
 }
