@@ -41,15 +41,32 @@ if (curPage.includes('goal_update.html')) {
     getGoalById(goalId);
 
     const deleteGoalButton = document.querySelector('#deleteGoalButton');
-    deleteGoalButton.addEventListener('click', ()=>{
+    deleteGoalButton.addEventListener('click', ()=>deleteGoal());
+    
+    async function deleteGoal() {
         let confirmToDelete = confirm("Are you sure to delete?");
         if (confirmToDelete) {
-            //TODO
-            alert('Goal deleted');
+            let goalId = getId();
+            const res3 = await fetch(`${API_URL_BASE}/goal/${goalId}`, {		
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    "Authorization": localStorage.getItem('token')
+                }
+            });
+            const resBody3 = await res3.json();
+            console.log(resBody3)
+            if (resBody3 !== undefined && 'id' in resBody3) {
+                alert('Deleted');
+            } else {
+        
+                alert('Delete fail');
+            }
             window.location.replace(`./goals.html`);
         } 
-    });
-    
+    }
+
     const saveGoalButton = document.querySelector('#saveGoalButton');
     saveGoalButton.addEventListener('click', ()=>saveGoal());
 }
@@ -70,7 +87,8 @@ async function saveGoal() {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": localStorage.getItem('token')
         },
         body: JSON.stringify(editGoal)
     });

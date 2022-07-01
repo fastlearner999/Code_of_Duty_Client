@@ -32,7 +32,8 @@ async function saveWorkout() {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": localStorage.getItem('token')
         },
         body: JSON.stringify(newWorkout)
     });

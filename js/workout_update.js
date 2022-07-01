@@ -36,14 +36,31 @@ if (curPage.includes('workout_update.html')) {
     getWorkoutById(workoutId);
 
     const deleteWorkoutButton = document.querySelector('#deleteWorkoutButton');
-    deleteWorkoutButton.addEventListener('click', ()=>{
+    deleteWorkoutButton.addEventListener('click', ()=>deleteWorkout());
+
+    async function deleteWorkout() {
         let confirmToDelete = confirm("Are you sure to delete?");
         if (confirmToDelete) {
-            //TODO
-            alert('Workout deleted');
+            let workoutId = getId();
+            const res3 = await fetch(`${API_URL_BASE}/workout/${workoutId}`, {		
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    "Authorization": localStorage.getItem('token')
+                }
+            });
+            const resBody3 = await res3.json();
+            console.log(resBody3)
+            if (resBody3 !== undefined && 'id' in resBody3) {
+                alert('Deleted');
+            } else {
+        
+                alert('Delete fail');
+            }
             window.location.replace(`./workouts.html`);
         } 
-    });
+    }
     
     const saveWorkoutButton = document.querySelector('#saveWorkoutButton');
     saveWorkoutButton.addEventListener('click', ()=>saveWorkout());
@@ -65,7 +82,8 @@ async function saveWorkout() {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": localStorage.getItem('token')
         },
         body: JSON.stringify(editWorkout)
     });

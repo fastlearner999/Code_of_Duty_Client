@@ -86,7 +86,8 @@ if (curPage.includes('profile_update.html')) {
 			method: 'PUT',
 			headers: {
 				'Accept': 'application/json',
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				"Authorization": localStorage.getItem('token')
 			},
 			body: JSON.stringify(existUser)
 		});
