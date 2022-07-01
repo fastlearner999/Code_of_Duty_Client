@@ -12,16 +12,19 @@ if (userId === undefined || userId === null || userId === 0) {
 }
 
 if (curPage.includes('workout_create.html')) {
-    const saveWorkoutButton = document.querySelector('#saveWorkoutButton');
-    saveWorkoutButton.addEventListener('click', ()=>saveWorkout());
+    const createWorkoutForm = document.querySelector('#createWorkoutForm');
+    createWorkoutForm.addEventListener('submit', (e)=> {
+        e.preventDefault();
+        saveWorkout();
+    });
 }
 
 async function saveWorkout() {
     let newWorkout = {
         user_id: parseInt(localStorage.getItem("uid")),
         sport_type: document.querySelector("#sportType").value,
-        start_time: document.querySelector("#startTime").value,
-        end_time: document.querySelector("#endTime").value,
+        start_time: document.querySelector("#startTime").value.replace('T', ' ') + ':00',
+        end_time: document.querySelector("#endTime").value.replace('T', ' ') + ':00',
         break_duration: parseInt(document.querySelector("#breakDuration").value),
         total_distance: parseInt(document.querySelector("#totalDistance").value),
         total_distance_unit: document.querySelector("#totalDistanceUnit").value,

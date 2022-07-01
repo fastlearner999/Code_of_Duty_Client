@@ -25,6 +25,7 @@
     <hr>
 
   <div class="workouts"> 
+    <form id="createWorkoutForm">
     <label for="sportType"> Sport Type:</label>
     <select id="sportType" name="sportType">
       <option value="running" selected>Running</option>
@@ -35,20 +36,20 @@
     <br><br>
 
     <label for="startTime">Start Time:</label>
-    <input id="startTime" name="startTime" type="datetime-local"><br><br>
+    <input id="startTime" name="startTime" type="datetime-local" required><br><br>
 
 
     <label for="endTime">End Time:</label>
-    <input id="endTime" name="endTIme" type="datetime-local"><br><br>
+    <input id="endTime" name="endTIme" type="datetime-local" required><br><br>
 
 
 
-    <label for="breakTime">Break Time:</label>
-    <input id="breakTime" name="breakTime" type="number" placeholder="0"> mins<br><br>
+    <label for="breakDuration">Break Duration:</label>
+    <input id="breakDuration" name="breakDuration" type="number" placeholder="0" required> mins<br><br>
 
 
     <label for="totalDistance"> Total Distance:</label>
-    <input id="totalDistance" name="totalDistance" type="number"placeholder="0">
+    <input id="totalDistance" name="totalDistance" type="number"placeholder="0" required>
     <select id="totalDistanceUnit" name="totalDistanceUnit">
       <option value="km" selected>km</option>
       <option value="mile">miles</option>
@@ -57,15 +58,15 @@
 
 
     <label for="totalDuration">Total Duration:</label>
-    <input id="totalDuration" name="totalDuration" type="number" placeholder="0">
+    <input id="totalDuration" name="totalDuration" type="number" placeholder="0" required>
     <select id="totalDurationUnit" name="totalDurationUnit">
       <option value="min" selected>mins</option>
       <option value="hour">hours</option>
     </select>
     <br><br> 
 
-  <button id="saveWorkoutButton">Save</button>
-
+  <button>Save</button>
+</form>
 </div>
     
     <br><br>

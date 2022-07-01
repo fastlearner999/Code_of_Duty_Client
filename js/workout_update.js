@@ -20,9 +20,9 @@ if (curPage.includes('workout_update.html')) {
             const data = await res1.json();
             document.querySelector('#id').value = data.id;
             document.querySelector('#sportType').value = data.sport_type;
-            document.querySelector('#startTime').value = data.start_time;
-            document.querySelector('#endTime').value = data.end_time;
-            document.querySelector('#breakTime').value = data.break_time;
+            document.querySelector('#startTime').value = data.start_time.substring(0, 16);
+            document.querySelector('#endTime').value = data.end_time.substring(0, 16);
+            document.querySelector('#breakDuration').value = data.break_duration;
             document.querySelector('#totalDistance').value = data.total_distance;
             document.querySelector('#totalDistanceUnit').value = data.total_distance_unit;
             document.querySelector('#totalDuration').value = data.total_duration;
@@ -62,16 +62,19 @@ if (curPage.includes('workout_update.html')) {
         } 
     }
     
-    const saveWorkoutButton = document.querySelector('#saveWorkoutButton');
-    saveWorkoutButton.addEventListener('click', ()=>saveWorkout());
+    const updateWorkoutForm = document.querySelector('#updateWorkoutForm');
+    updateWorkoutForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        saveWorkout();
+    });
 }
 
 async function saveWorkout() {
     let editWorkout = {
         id: parseInt(document.querySelector("#id").value),
         sport_type: document.querySelector("#sportType").value,
-        start_time: document.querySelector("#startTime").value,
-        end_time: document.querySelector("#endTime").value,
+        start_time: document.querySelector("#startTime").value.replace('T', ' ') + ':00',
+        end_time: document.querySelector("#endTime").value.replace('T', ' ') + ':00',
         break_duration: parseInt(document.querySelector("#breakDuration").value),
         total_distance: parseInt(document.querySelector("#totalDistance").value),
         total_distance_unit: document.querySelector("#totalDistanceUnit").value,
