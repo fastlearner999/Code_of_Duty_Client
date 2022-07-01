@@ -7,10 +7,14 @@ a {
     all: unset;
 }
 
+body{
+    background: lightgrey;
+}
+
 /* header  */
 .top {
     color: #ADFF2F;
-    background-color: #ADFF2F;
+    background-color: #4bc25d;
     height: 40px;
 }
 
