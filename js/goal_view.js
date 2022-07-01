@@ -15,6 +15,8 @@ if (userId === undefined || userId === null || userId === 0) {
 if (curPage.includes('goals.html')) {
     async function getAllGoals() {
         try{
+            let listOfWorkout = await getWorkoutByUserId();
+
             let url = `${API_URL_BASE}/goal`;
             let userId = localStorage.getItem("uid");
             if (userId !== undefined && userId !== null && userId !== 0) {
@@ -23,12 +25,14 @@ if (curPage.includes('goals.html')) {
             const response = await fetch(url)
             const data = await response.json();
             data.forEach(goal => {
+                let progress = getGoalProgress(goal, listOfWorkout);
+
                 const listTag = document.querySelector('#goal_list');
     
                 // creating goals card
                 const div = document.createElement('div')
                 const title = document.createElement('h4')
-                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + removeTime(goal.start_date) + '/' + removeTime(goal.end_date) + ' / ' + goal.target_distance + goal.target_distance_unit;
+                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + removeTime(goal.start_date) + '/' + removeTime(goal.end_date) + ' / ' + goal.target_distance + goal.target_distance_unit + '/ progress: ' + progress*100 + '%' ;
                 
                 // styling created elements
                 div.classList = 'goal-div'
@@ -58,9 +62,13 @@ if (curPage.includes('goal_view.html')) {
     let goalId = getId();
     async function getGoalById(goalId) {
         try{
+            let listOfWorkout = await getWorkoutByUserId();
+
             let url = `${API_URL_BASE}/goal/${goalId}`;
             const response = await fetch(url)
             const data = await response.json();
+
+            let progress = getGoalProgress(data, listOfWorkout);
 
             const goalName = document.querySelector('#goalName');
             goalName.textContent = "Goal Name: " + data.goal_name;
@@ -79,6 +87,9 @@ if (curPage.includes('goal_view.html')) {
 
             const targetDetails = document.querySelector('#targetDetails');
             targetDetails.textContent = "Target: " + data.target_distance + ' ' + data.target_distance_unit;
+
+            const yourProgress = document.querySelector('#yourProgress');
+            yourProgress.textContent = "Your Progress: " + (progress*100).toString() + "%";
 
             const createDate = document.querySelector('#createDate');
             createDate.textContent = "Crated Date: " + data.create_date;
@@ -120,4 +131,47 @@ function replaceNull(val) {
 
 function removeTime(dateTimeString) {
     return dateTimeString.substring(0, 10);
+}
+
+async function getWorkoutByUserId() {
+    try {
+        let url = `${API_URL_BASE}/workout`;
+        let userId = localStorage.getItem("uid");
+        if (userId !== undefined && userId !== null && userId !== 0) {
+            url = `${API_URL_BASE}/workout/userId/${userId}`;
+        }
+        const response = await fetch(url)
+        const data = await response.json();
+        return data;
+    } catch(err) {
+        return [];
+    }
+}
+
+function getGoalProgress(goal, listOfWorkout) {
+    let targetDistance = parseInt(convertToMile(goal.target_distance, goal.target_distance_unit));
+    let achivedDistance = 0;
+    listOfWorkout.forEach((curWorkout) => {
+        if (curWorkout.sport_type === goal.sport_type) {
+            let workourStartTime = Date.parse(curWorkout.start_time);
+            let workourEndTime = Date.parse(curWorkout.end_time);
+            let goalStartTime = Date.parse(goal.start_date);
+            let goalEndTime = Date.parse(goal.end_date);
+            if (workourStartTime > goalStartTime &&  workourEndTime < goalEndTime) {
+                achivedDistance = achivedDistance + convertToMile(curWorkout.total_distance, curWorkout.total_distance_unit);
+            }
+        }
+    });
+    if (targetDistance > 0 && achivedDistance > 0) {
+        return achivedDistance/targetDistance;
+    }
+    return 0;
+}
+
+function convertToMile(distance, unit) {
+    let result = distance;
+    if (unit === 'mile') {
+        result = result*1.61;
+    }
+    return result;
 }
