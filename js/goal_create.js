@@ -33,7 +33,7 @@ async function saveGoal() {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      "Authorization": localStorage.getItem('token')
+      "authorization": localStorage.getItem('token')
     },
     body: JSON.stringify(newGoal)
   });

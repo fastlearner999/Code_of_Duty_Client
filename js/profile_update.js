@@ -42,7 +42,7 @@ if (curPage.includes('profile_update.html')) {
             await fetch(`${API_URL_BASE}/user/${goalId}`, {		
                 method: 'DELETE',
                 headers: {
-                    "Authorization": localStorage.getItem('token')
+                    "authorization": localStorage.getItem('token')
                 }
             }).then((res) => {
                 console.log(res);
@@ -107,7 +107,7 @@ if (curPage.includes('profile_update.html')) {
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
-				"Authorization": localStorage.getItem('token')
+				"authorization": localStorage.getItem('token')
 			},
 			body: JSON.stringify(existUser)
 		});

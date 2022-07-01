@@ -45,7 +45,7 @@ if (curPage.includes('workout_update.html')) {
             await fetch(`${API_URL_BASE}/workout/${workoutId}`, {		
                 method: 'DELETE',
                 headers: {
-                    "Authorization": localStorage.getItem('token')
+                    "authorization": localStorage.getItem('token')
                 }
             }).then((res) => {
                 console.log(res);
@@ -79,7 +79,7 @@ async function saveWorkout() {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            "Authorization": localStorage.getItem('token')
+            "authorization": localStorage.getItem('token')
         },
         body: JSON.stringify(editWorkout)
     });

@@ -50,7 +50,7 @@ if (curPage.includes('goal_update.html')) {
             await fetch(`${API_URL_BASE}/goal/${goalId}`, {		
                 method: 'DELETE',
                 headers: {
-                    "Authorization": localStorage.getItem('token')
+                    "authorization": localStorage.getItem('token')
                 }
             }).then((res) => {
                 console.log(res);
@@ -76,12 +76,12 @@ async function saveGoal() {
         target_distance: parseInt(document.querySelector("#targetDistance").value),
         target_distance_unit: document.querySelector("#targetDistanceUnit").value
     };
-    const res2 = await fetch(`${API_URL_BASE}/goal`, {		
+    const res2 = await fetch(`http://localhost:3000/goal`, {		
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            "Authorization": localStorage.getItem('token')
+            "authorization": localStorage.getItem('token')
         },
         body: JSON.stringify(editGoal)
     });
@@ -93,7 +93,7 @@ async function saveGoal() {
 
         alert('Save fail');
     }
-    window.location.replace(`./goals.html`);
+    //window.location.replace(`./goals.html`);
 }
 
 function getId() {
