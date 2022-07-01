@@ -141,10 +141,10 @@
   }
 
   /* 
-      style appended goals elements below
+            need to style appended goals elements
   */
 
-  .goal-div{
+  .goal-div {
     padding: 1em;
     border: 0.1em solid black;
     margin-top: 0.2em;
@@ -154,15 +154,7 @@
     margin-left: auto;
   }
 
-  .goal-title{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-  }
 
-  .goal-div .goal-title:hover{
-    background: #ADFF2F;
-  }
 
 
   /* experiment dark-mode start */
