@@ -13,7 +13,7 @@
   </head>
   <body>
 
-    <p class="top">Top</p><br>
+   
 
     <a href="./profile_update.html" class="hbtn hb-fill-middle2-rev-bg-br">Your Profile</a>
     <a href="./goals.html" class="hbtn hb-fill-middle2-rev-bg-br">Your Goals</a>
@@ -25,12 +25,12 @@
 
     <hr>
     
-    <div class="workouts"> 
+    <div class="logincontent"> 
       <form id="updateGoalForm">
-      <input id="id" name="id" type="number" hidden>
+      <input id="id"  class="inputs" name="id" type="number" hidden>
 
     <label for="goalName">Goal Name:</label>
-      <input id="goalName" name="goalName" type="text" required><br><br>
+      <input id="goalName" class="inputs" name="goalName" type="text" required><br><br>
 
       <label for="sportType"> Sport Type:</label>
       <select id="sportType" name="sportType">
@@ -42,7 +42,7 @@
       <br><br>
 
       <label for="period">Period:</label>
-      <input id="period" name="period" type="number" placeholder="0" required> 
+      <input id="period" class="inputs"  name="period" type="number" placeholder="0" required> 
       <select id="periodType" name="periodType">
         <option value="day" selected>Day</option>
         <option value="week">Week</option>
@@ -52,38 +52,35 @@
       <br><br>
   
       <label for="startDate">Start Date:</label>
-      <input id="startDate" name="startDate" type="date" required><br><br>
+      <input id="startDate" class="inputs" name="startDate" type="date" required><br><br>
   
   
       <label for="endDate">End Date:</label>
-      <input id="endDate" name="endDate" type="date" required><br><br>
+      <input id="endDate" class="inputs" name="endDate" type="date" required><br><br>
   
       <label for="targetDistance"> Target Distance:</label>
-      <input id="targetDistance" name="targetDistance" type="number"placeholder="0" required>
-      <select id="targetDistanceUnit" name="targetDistanceUnit">
+      <input id="targetDistance"  name="targetDistance" type="number"placeholder="0" required>
+      <select id="targetDistanceUnit"  name="targetDistanceUnit">
         <option value="km" selected>km</option>
         <option value="mile">miles</option>
       </select>
       <br><br> 
-
+      
       <label for="yourProgress">Your Progress:</label>
-      <input id="yourProgress" name="yourProgress" type="number" disabled>%<br><br>
+      <input id="yourProgress" class="inputs" name="yourProgress" type="number" disabled>%<br><br>
 
       <label for="createDate">Created Date:</label>
-      <input id="createDate" name="createDate" type="text" disabled><br><br>
+      <input id="createDate" class="inputs" name="createDate" type="text" disabled><br><br>
 
       <label for="updateDate">Updated Date:</label>
-      <input id="updateDate" name="updateDate" type="text" disabled><br><br>
+      <input id="updateDate" class="inputs" name="updateDate" type="text" disabled><br><br>
   
-    <button>Save</button>
-  </form>
-  <button id="deleteGoalButton">Delete goal</button>
+      <button class=" hbtn hb-fill-middle2-rev-bg-br">Save</button>
+    </form>
+  <button id="deleteGoalButton" class="hbtn hb-fill-middle2-rev-bg-br">Delete goal</button>
   
   </div>
 
-  <br><br>
-
-    <p class="bottom">Bottom</p>
     
   </body>
 </html>

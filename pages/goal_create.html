@@ -14,7 +14,7 @@
   </head>
   <body>
 
-    <p class="top">Top</p><br>
+    
 <!-- 
     <a href="./profile_update.html"><b>Your profile</b></a> / 
     <a href="./goals.html"><b>Your goals</b></a> / 
@@ -29,15 +29,15 @@
 
     <hr>
 
-    <div class="workouts"> 
+    <div class="logincontent"> 
       <form id="createGoalForm">
       <input id="id" name="id" type="number" hidden>
 
     <label for="goalName">Goal Name:</label>
-      <input id="goalName" name="goalName" type="text" required><br><br>
+      <input id="goalName" class="inputs"  name="goalName" type="text" required><br><br>
 
       <label for="sportType"> Sport Type:</label>
-      <select id="sportType" name="sportType">
+      <select  id="sportType" name="sportType">
         <option value="running" selected>Running</option>
         <option value="swimming">Swimming</option>
         <option value="cycling">Cycling</option>
@@ -46,7 +46,7 @@
       <br><br>
 
       <label for="period">Period:</label>
-      <input id="period" name="period" type="number" placeholder="0" required> 
+      <input id="period" class="inputs" name="period" type="number" placeholder="0" required> 
       <select id="periodType" name="periodType">
         <option value="day" selected>Day</option>
         <option value="week">Week</option>
@@ -56,11 +56,11 @@
       <br><br>
   
       <label for="startDate">Start Date:</label>
-      <input id="startDate" name="startDate" type="date" required><br><br>
+      <input id="startDate" class="inputs" name="startDate" type="date" required><br><br>
   
   
       <label for="endDate">End Date:</label>
-      <input id="endDate" name="endDate" type="date" required><br><br>
+      <input id="endDate" class="inputs" name="endDate" type="date" required><br><br>
   
       <label for="targetDistance"> Target Distance:</label>
       <input id="targetDistance" name="targetDistance" type="number"placeholder="0" required>
@@ -70,12 +70,8 @@
       </select>
       <br><br> 
   
-    <button>Save</button>
+    <button class="hbtn hb-fill-middle2-rev-bg-br" >Save</button>
     </form>
   </div>
 </body>
-  <br><br>
-
-    
-
 </html>
