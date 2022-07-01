@@ -8,7 +8,7 @@ a {
 }
 
 body{
- background: grey;
+ background: silver;
   } 
 
 /* header  */
@@ -36,12 +36,7 @@ body{
 
 /*** buttons starts ***/
 
-#btn-dark-mode{
-    margin-bottom: 6%;
-    padding: 0.3%;
-    background-color: #ADFF2F;
-    color: black;
-}
+
 .buttonone {
     margin-left: auto;
     background-color: #ADFF2F;
@@ -119,6 +114,5 @@ body{
 .sort {
     margin-left: 20px;
 }
-
 
 
