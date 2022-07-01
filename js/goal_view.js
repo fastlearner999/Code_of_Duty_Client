@@ -28,7 +28,7 @@ if (curPage.includes('goals.html')) {
                 // creating goals card
                 const div = document.createElement('div')
                 const title = document.createElement('h4')
-                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + goal.start_date + '/' + goal.end_date + ' / ' + goal.target_distance + goal.target_distance_unit;
+                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + removeTime(goal.start_date) + '/' + removeTime(goal.end_date) + ' / ' + goal.target_distance + goal.target_distance_unit;
                 
                 // styling created elements
                 div.classList = 'goal-div'
@@ -72,10 +72,10 @@ if (curPage.includes('goal_view.html')) {
             period.textContent = "Period: " + data.period + ' ' + data.period_type;
 
             const startDate = document.querySelector('#startDate');
-            startDate.textContent = "Start Date: " + data.start_date;
+            startDate.textContent = "Start Date: " + removeTime(data.start_date);
 
             const endDate = document.querySelector('#endDate');
-            endDate.textContent = "End Date: " + data.end_date;
+            endDate.textContent = "End Date: " + removeTime(data.end_date);
 
             const targetDetails = document.querySelector('#targetDetails');
             targetDetails.textContent = "Target: " + data.target_distance + ' ' + data.target_distance_unit;
@@ -116,4 +116,8 @@ function replaceNull(val) {
         return "";
     } 
     return val;
+}
+
+function removeTime(dateTimeString) {
+    return dateTimeString.substring(0, 10);
 }

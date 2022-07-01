@@ -19,14 +19,14 @@ if (curPage.includes('goal_create.html')) {
 async function saveGoal() {
   let newGoal = {
     user_id: parseInt(localStorage.getItem("uid")),
-    goal_name: document.querySelector('#goal_name').value,
-    sport_type: document.querySelector('#sport_type').value,
+    goal_name: document.querySelector('#goalName').value,
+    sport_type: document.querySelector('#sportType').value,
     period: parseInt( document.querySelector('#period').value),
-    period_type: document.querySelector('#period_type').value,
-    start_date: document.querySelector('#startDate').value,
-    end_date: document.querySelector('#endDate').value,
-    target_distance: parseInt( document.querySelector('#target_distance').value),
-    target_distance_unit: document.querySelector('#target_distance_unit').value
+    period_type: document.querySelector('#periodType').value,
+    start_date: document.querySelector('#startDate').value + ' 00:00:00',
+    end_date: document.querySelector('#endDate').value + ' 00:00:00',
+    target_distance: parseInt( document.querySelector('#targetDistance').value),
+    target_distance_unit: document.querySelector('#targetDistanceUnit').value
   };
   const res2 = await fetch(`${API_URL_BASE}/goal`, {		
     method: 'POST',
