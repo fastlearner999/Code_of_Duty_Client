@@ -8,8 +8,8 @@ a {
 }
 
 body{
-    background: lightgrey;
-}
+ background: grey;
+  } 
 
 /* header  */
 .top {
@@ -43,7 +43,7 @@ body{
     color: black;
 }
 .buttonone {
-    margin-left: 28%;
+    margin-left: auto;
     background-color: #ADFF2F;
     color: black;
 }
