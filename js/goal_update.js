@@ -76,7 +76,7 @@ async function saveGoal() {
         target_distance: parseInt(document.querySelector("#targetDistance").value),
         target_distance_unit: document.querySelector("#targetDistanceUnit").value
     };
-    const res2 = await fetch(`http://localhost:3000/goal`, {		
+    const res2 = await fetch(`${API_URL_BASE}/goal`, {		
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -93,7 +93,7 @@ async function saveGoal() {
 
         alert('Save fail');
     }
-    //window.location.replace(`./goals.html`);
+    window.location.replace(`./goals.html`);
 }
 
 function getId() {
