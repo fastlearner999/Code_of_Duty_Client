@@ -1,9 +1,30 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
+
+  /* header  */
+
+  .top {
+    color: #ADFF2F;
+    background-color: #ADFF2F;
+    height: 40px;
+}
+
+/* footer */
+.bottom {
+  color: #ADFF2F;
+  background-color: #ADFF2F;
+  height: 40px;
+}
+
+/* logo */
+.logo {
+  width: 250px;
+  /* margin-left: 485px; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
   
-  html {
+.habitscon {
     box-sizing: border-box;
     min-height: 100vh;
     display: flex;
@@ -19,13 +40,17 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: whitesmoke;
+    background: silver;
   }
   
-  .container {
+  /* .container {
     padding: 20px;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 15px;
+  } */
+
+  h1 {
+    font:
   }
   
   h2 {
@@ -34,17 +59,17 @@
   }
   
   .habits {
-    text-align: left;
+    text-align: center;
     list-style: none;
   }
   
-  .habits li {
+  /* .habits li {
     border-bottom: 1px solid gray;
     padding: 10px;
     font-weight: 400;
     display: flex;
     align-items: center;
-  }
+  } */
   
   .habits label {
     flex: 1;
@@ -114,25 +139,23 @@
     flex-direction: row;
   }
 
+  /* 
+            need to style appended goals elements
+  */
 
+  .goal-div {
+    padding: 1em;
+    border: 0.1em solid black;
+    margin-top: 2em;
+    cursor: pointer;
+    width: 100em;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-  /* experiment dark-mode start */
-  #btn-dark-mode{
-    margin-bottom: 6%;
-    padding: 4%;
-    background-color: #ADFF2F;
-    color: black;
-    
-    margin: 5px;
-    outline: 0;
-    border: 0;
-    border-radius: 10px;
-}
+  .goals{
+    text-align: center;
+  }
 
-/* tooggle dark-mode */
-.dark-mode {
-  background-color: black;
-  /* color: white; */
-}
+ 
 
-/* experiment dark-mode end*/

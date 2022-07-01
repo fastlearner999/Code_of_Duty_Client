@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet">
+    <script defer src="../js/profile_login.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js'></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+            'sitekey' : "6LfXLK8gAAAAABjmN3XQcsAznRStuwIUizd_Cqgr"
+        });
+        };
+    </script>
+</head>
+<body>
+    <div class="logincontent">
+        <img class="logo" src="../images/Code of Duty.png"><br><br>
+        <h1>Login</h1>
+        <form id="login-form">
+            <input type="text" id="email" class="inputs" placeholder="Email address" required><br><br>
+            <input type="password" id="password" class="inputs" placeholder="Password" required><br><br><br>
+            <div class="" id="html_element" ></div>
+            <br/>
+            <a href=""><button class=" btn-style">Log in</button></a>
+        </form>
+        <a href="./profile_create.html"><button  id="btnone" class="btn-style">Sign up</button></a>
+    </div>
+</body>
+</html>
+
+

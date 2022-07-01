@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Workout</title>
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/button.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+
+  <script defer src="../js/workout_update.js"></script>
+</head>
+<body>
+
+   
+
+    <a href="./profile_update.html" class="hbtn hb-fill-middle2-rev-bg-br">Your Profile</a>
+    <a href="./goals.html" class="hbtn hb-fill-middle2-rev-bg-br">Your Goals</a>
+    <a href="./workouts.html" class="hbtn hb-fill-middle2-rev-bg-br">Your Workouts</a>
+
+    <img class="logo" src="../images/Code of Duty.png"><br><br>
+    <h1>Edit Workout</h1>
+
+    <hr>
+    
+    <div class="logincontent"> 
+      <form id="updateWorkoutForm">
+      <input id="id" name="id" type="number" hidden>
+      
+      <label for="sportType"> Sport Type:</label>
+      <select id="sportType" name="sportType">
+        <option value="running" selected>Running</option>
+        <option value="swimming">Swimming</option>
+        <option value="cycling">Cycling</option>
+        <option value="walking">Walking</option>
+      </select>
+      <br><br>
+  
+      <label for="startTime">Start Time:</label>
+      <input id="startTime" class="inputs" name="startTime" type="datetime-local" required><br><br>
+  
+  
+      <label for="endTime">End Time:</label>
+      <input id="endTime" class="inputs" name="endTIme" type="datetime-local" required><br><br>
+  
+  
+  
+      <label for="breakDuration">Break Duration:</label>
+      <input id="breakDuration" class="inputs" name="breakDuration" type="number" placeholder="0"> mins<br><br>
+  
+  
+      <label for="totalDistance"> Total Distance:</label>
+      <input id="totalDistance" name="totalDistance" type="number"placeholder="0" required>
+      <select id="totalDistanceUnit" name="totalDistanceUnit">
+        <option value="km" selected>km</option>
+        <option value="mile">miles</option>
+      </select>
+      <br><br> 
+  
+      <label for="totalDuration">Total Duration:</label>
+      <input id="totalDuration" name="totalDuration" type="number" placeholder="0" required>
+      <select id="totalDurationUnit" name="totalDurationUnit">
+        <option value="min" selected>mins</option>
+        <option value="hour">hours</option>
+      </select>
+      <br><br> 
+
+      <label for="createDate">Created Date:</label>
+      <input id="createDate" class="inputs" name="createDate" type="text" disabled><br><br>
+
+      <label for="updateDate">Updated Date:</label>
+      <input id="updateDate" class="inputs" name="updateDate" type="date" disabled><br><br>
+  
+    <button class="hbtn hb-fill-middle2-rev-bg-br">Save</button>
+  </form>
+  <button id="deleteWorkoutButton" class="hbtn hb-fill-middle2-rev-bg-br">Delete workout</button>
+  </div>
+
+
+
+</body>
+</html>
