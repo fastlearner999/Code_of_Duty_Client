@@ -42,22 +42,15 @@ if (curPage.includes('workout_update.html')) {
         let confirmToDelete = confirm("Are you sure to delete?");
         if (confirmToDelete) {
             let workoutId = getId();
-            const res3 = await fetch(`${API_URL_BASE}/workout/${workoutId}`, {		
+            await fetch(`${API_URL_BASE}/workout/${workoutId}`, {		
                 method: 'DELETE',
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
                     "Authorization": localStorage.getItem('token')
                 }
-            });
-            const resBody3 = await res3.json();
-            console.log(resBody3)
-            if (resBody3 !== undefined && 'id' in resBody3) {
+            }).then((res) => {
+                console.log(res);
                 alert('Deleted');
-            } else {
-        
-                alert('Delete fail');
-            }
+            });
             window.location.replace(`./workouts.html`);
         } 
     }

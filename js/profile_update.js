@@ -32,6 +32,26 @@ if (curPage.includes('profile_update.html')) {
     }
     getProfileById();
 
+	const deleteProfileButton = document.querySelector('#deleteProfileButton');
+    deleteProfileButton.addEventListener('click', ()=>deleteProfile());
+    
+    async function deleteProfile() {
+        let confirmToDelete = confirm("Are you sure to delete?");
+        if (confirmToDelete) {
+            let goalId = getId();
+            await fetch(`${API_URL_BASE}/user/${goalId}`, {		
+                method: 'DELETE',
+                headers: {
+                    "Authorization": localStorage.getItem('token')
+                }
+            }).then((res) => {
+                console.log(res);
+                alert('Deleted');
+            });
+            window.location.replace(`./login.html`);
+        } 
+    }
+
 	let userEditForm = document.querySelector("#edit-profile-form");
 	userEditForm.addEventListener('submit', async (e)=>{
 		e.preventDefault();
