@@ -73,10 +73,10 @@ body{
     /* margin-left: 400px; */
     height: 30px;
     background-color: white;
+    padding:10px;
+    border-radius:10px;
 }
 
-
-/* google recaptcha div */
 
 #html_element{
     width: 250px ;
@@ -115,4 +115,12 @@ body{
     margin-left: 20px;
 }
 
-
+.goal-div {
+    padding: 1em;
+    border: 0.1em solid black;
+    margin-top: 2em;
+    cursor: pointer;
+    width: 100em;
+    margin-right: auto;
+    margin-left: auto;
+  }
