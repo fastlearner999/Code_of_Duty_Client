@@ -60,8 +60,11 @@ if (curPage.includes('goal_update.html')) {
         } 
     }
 
-    const saveGoalButton = document.querySelector('#saveGoalButton');
-    saveGoalButton.addEventListener('click', ()=>saveGoal());
+    const updateGoalForm = document.querySelector('#updateGoalForm');
+    updateGoalForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        saveGoal();
+    });
 }
 
 async function saveGoal() {

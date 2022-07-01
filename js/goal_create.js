@@ -12,8 +12,11 @@ if (userId === undefined || userId === null || userId === 0) {
 }
 
 if (curPage.includes('goal_create.html')) {
-  const saveGoalButton = document.querySelector('#saveGoalButton');
-  saveGoalButton.addEventListener('click', ()=>saveGoal());
+  const createGoalForm = document.querySelector('#createGoalForm');
+  createGoalForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    saveGoal();
+  });
 }
 
 async function saveGoal() {

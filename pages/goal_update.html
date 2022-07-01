@@ -24,10 +24,11 @@
     <hr>
     
     <div class="workouts"> 
+      <form id="updateGoalForm">
       <input id="id" name="id" type="number" hidden>
 
     <label for="goalName">Goal Name:</label>
-      <input id="goalName" name="goalName" type="text"><br><br>
+      <input id="goalName" name="goalName" type="text" required><br><br>
 
       <label for="sportType"> Sport Type:</label>
       <select id="sportType" name="sportType">
@@ -39,7 +40,7 @@
       <br><br>
 
       <label for="period">Period:</label>
-      <input id="period" name="period" type="number" placeholder="0"> 
+      <input id="period" name="period" type="number" placeholder="0" required> 
       <select id="periodType" name="periodType">
         <option value="day" selected>Day</option>
         <option value="week">Week</option>
@@ -49,14 +50,14 @@
       <br><br>
   
       <label for="startDate">Start Date:</label>
-      <input id="startDate" name="startDate" type="date"><br><br>
+      <input id="startDate" name="startDate" type="date" required><br><br>
   
   
       <label for="endDate">End Date:</label>
-      <input id="endDate" name="endDate" type="date"><br><br>
+      <input id="endDate" name="endDate" type="date" required><br><br>
   
       <label for="targetDistance"> Target Distance:</label>
-      <input id="targetDistance" name="targetDistance" type="number"placeholder="0">
+      <input id="targetDistance" name="targetDistance" type="number"placeholder="0" required>
       <select id="targetDistanceUnit" name="targetDistanceUnit">
         <option value="km" selected>km</option>
         <option value="mile">miles</option>
@@ -69,7 +70,9 @@
       <label for="updateDate">Updated Date:</label>
       <input id="updateDate" name="updateDate" type="text" disabled><br><br>
   
-    <button id="saveGoalButton">Save</button><button id="deleteGoalButton">Delete goal</button>
+    <button>Save</button>
+  </form>
+  <button id="deleteGoalButton">Delete goal</button>
   
   </div>
 
