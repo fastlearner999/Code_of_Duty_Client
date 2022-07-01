@@ -37,7 +37,7 @@ if (curPage.includes('goal_update.html')) {
             document.querySelector('#endDate').value = data.end_date.substring(0, 10);
             document.querySelector('#targetDistance').value = data.target_distance;
             document.querySelector('#targetDistanceUnit').value = data.target_distance_unit;
-            document.querySelector('#yourProgress').value = progress*100;
+            document.querySelector('#yourProgress').value = (progress*100).toFixed(2);
             document.querySelector('#createDate').value = data.create_date;
             document.querySelector('#updateDate').value = replaceNull(data.update_date);
         } catch(err) {
