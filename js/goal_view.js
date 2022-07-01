@@ -32,7 +32,7 @@ if (curPage.includes('goals.html')) {
                 // creating goals card
                 const div = document.createElement('div')
                 const title = document.createElement('h4')
-                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + removeTime(goal.start_date) + '/' + removeTime(goal.end_date) + ' / ' + goal.target_distance + goal.target_distance_unit + '/ progress: ' + progress*100 + '%' ;
+                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + removeTime(goal.start_date) + '/' + removeTime(goal.end_date) + ' / ' + goal.target_distance + goal.target_distance_unit + '/ progress: ' + (progress*100).toFixed(2) + '%' ;
                 
                 // styling created elements
                 div.classList = 'goal-div'
@@ -69,6 +69,7 @@ if (curPage.includes('goal_view.html')) {
             const data = await response.json();
 
             let progress = getGoalProgress(data, listOfWorkout);
+            progress = (progress*100).toFixed(2);
 
             const goalName = document.querySelector('#goalName');
             goalName.textContent = "Goal Name: " + data.goal_name;
@@ -89,7 +90,7 @@ if (curPage.includes('goal_view.html')) {
             targetDetails.textContent = "Target: " + data.target_distance + ' ' + data.target_distance_unit;
 
             const yourProgress = document.querySelector('#yourProgress');
-            yourProgress.textContent = "Your Progress: " + (progress*100).toString() + "%";
+            yourProgress.textContent = "Your Progress: " + progress.toString() + "%";
 
             const createDate = document.querySelector('#createDate');
             createDate.textContent = "Crated Date: " + data.create_date;
