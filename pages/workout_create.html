@@ -25,10 +25,10 @@
 
     <hr>
 
-  <div class="workouts"> 
+  <div class="logincontent"> 
     <form id="createWorkoutForm">
     <label for="sportType"> Sport Type:</label>
-    <select id="sportType" name="sportType">
+    <select id="sportType"  name="sportType">
       <option value="running" selected>Running</option>
       <option value="swimming">Swimming</option>
       <option value="cycling">Cycling</option>
@@ -37,16 +37,16 @@
     <br><br>
 
     <label for="startTime">Start Time:</label>
-    <input id="startTime" name="startTime" type="datetime-local" required><br><br>
+    <input id="startTime" class="inputs" name="startTime" type="datetime-local" required><br><br>
 
 
     <label for="endTime">End Time:</label>
-    <input id="endTime" name="endTIme" type="datetime-local" required><br><br>
+    <input id="endTime" class="inputs" name="endTIme" type="datetime-local" required><br><br>
 
 
 
     <label for="breakDuration">Break Duration:</label>
-    <input id="breakDuration" name="breakDuration" type="number" placeholder="0" required> mins<br><br>
+    <input id="breakDuration"  class="inputs"name="breakDuration" type="number" placeholder="0" required> mins<br><br>
 
 
     <label for="totalDistance"> Total Distance:</label>
@@ -66,13 +66,10 @@
     </select>
     <br><br> 
 
-  <button>Save</button>
+  <button class="hbtn hb-fill-middle2-rev-bg-br">Save</button>
 </form>
 </div>
     
-    <br><br>
-    
-    <p class="bottom">Bottom</p>
-
+   
   </body>
 </html>

@@ -25,7 +25,7 @@
 
     <hr>
     
-    <div class="workouts"> 
+    <div class="logincontent"> 
       <form id="updateWorkoutForm">
       <input id="id" name="id" type="number" hidden>
       
@@ -39,16 +39,16 @@
       <br><br>
   
       <label for="startTime">Start Time:</label>
-      <input id="startTime" name="startTime" type="datetime-local" required><br><br>
+      <input id="startTime" class="inputs" name="startTime" type="datetime-local" required><br><br>
   
   
       <label for="endTime">End Time:</label>
-      <input id="endTime" name="endTIme" type="datetime-local" required><br><br>
+      <input id="endTime" class="inputs" name="endTIme" type="datetime-local" required><br><br>
   
   
   
       <label for="breakDuration">Break Duration:</label>
-      <input id="breakDuration" name="breakDuration" type="number" placeholder="0"> mins<br><br>
+      <input id="breakDuration" class="inputs" name="breakDuration" type="number" placeholder="0"> mins<br><br>
   
   
       <label for="totalDistance"> Total Distance:</label>
@@ -68,19 +68,17 @@
       <br><br> 
 
       <label for="createDate">Created Date:</label>
-      <input id="createDate" name="createDate" type="text" disabled><br><br>
+      <input id="createDate" class="inputs" name="createDate" type="text" disabled><br><br>
 
       <label for="updateDate">Updated Date:</label>
-      <input id="updateDate" name="updateDate" type="text" disabled><br><br>
+      <input id="updateDate" class="inputs" name="updateDate" type="date" disabled><br><br>
   
-    <button>Save</button>
+    <button class="hbtn hb-fill-middle2-rev-bg-br">Save</button>
   </form>
-  <button id="deleteWorkoutButton">Delete workout</button>
+  <button id="deleteWorkoutButton" class="hbtn hb-fill-middle2-rev-bg-br">Delete workout</button>
   </div>
 
-<br><br>
 
-<p class="bottom">Bottom</p>
 
 </body>
 </html>
