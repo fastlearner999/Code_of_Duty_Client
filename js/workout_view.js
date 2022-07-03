@@ -26,15 +26,20 @@ if (curPage.includes('workouts.html')) {
                 const listTag = document.querySelector('#workout_list');
     
                 // creating goals card
-                const div = document.createElement('div')
-                const title = document.createElement('h4')
-                title.textContent = workout.sport_type + ' / ' + workout.start_time + ' / ' + workout.end_time + ' / ' + workout.break_duration + ' / ' + workout.total_distance + workout.total_distance_unit;
+                const div = document.createElement('div');
+                const info = document.createElement('div');
+                let sportType = (workout.sport_type).charAt(0).toUpperCase() + (workout.sport_type).slice(1);
+                info.innerHTML = 
+                    '<h1>' + sportType + ' (' + workout.total_distance + ' ' + workout.total_distance_unit + '(s))</h1>' +
+                    'Break: ' + workout.break_duration + ' min(s)<br>' +
+                    'Worked: ' + workout.total_duration + ' ' + workout.total_duration_unit + '(s)<br>' +
+                    'Start: ' + workout.start_time + ' End: ' + workout.end_time;
                 
                 // styling created elements
                 div.classList = 'goal-div'
-                title.classList = 'goal-title'
+                info.classList = 'goal-title'
                 
-                div.appendChild(title);
+                div.appendChild(info);
                 
                 listTag.appendChild(div);
                 
@@ -62,26 +67,30 @@ if (curPage.includes('workout_view.html')) {
             const response = await fetch(url)
             const data = await response.json();
 
-            const sportType = document.querySelector('#sportType');
-            sportType.textContent = "Sport Type: " + data.sport_type;
+            const sportTypeDiv = document.querySelector('#sportType');
+            let sportType = data.sport_type;
+            sportTypeDiv.innerHTML = "<b>Sport Type:</b> " + sportType.charAt(0).toUpperCase() + sportType.slice(1);
 
-            const startTime = document.querySelector('#startTime');
-            startTime.textContent = "Start Time: " + data.start_time;
+            const startTimeDiv = document.querySelector('#startTime');
+            startTimeDiv.innerHTML = "<b>Start Time:</b> " + data.start_time;
 
-            const endTime = document.querySelector('#endTime');
-            endTime.textContent = "End Time: " + data.end_time;
+            const endTimeDiv = document.querySelector('#endTime');
+            endTimeDiv.innerHTML = "<b>End Time:</b> " + data.end_time;
 
-            const breakDuration = document.querySelector('#breakDuration');
-            breakDuration.textContent = "Break: " + data.break_duration + " mins";
+            const breakDurationDiv = document.querySelector('#breakDuration');
+            breakDurationDiv.innerHTML = "<b>Break:</b> " + data.break_duration + " min(s)";
 
-            const workoutDetails = document.querySelector('#workoutDetails');
-            workoutDetails.textContent = "Worked: " + data.total_distance + data.total_distance_unit;
+            const workoutDetailsDiv = document.querySelector('#workoutDetails');
+            workoutDetailsDiv.innerHTML = "<b>Worked:</b> " + data.total_distance + ' ' + data.total_distance_unit + '(s)';
 
-            const createDate = document.querySelector('#createDate');
-            createDate.textContent = "Crated Date: " + data.create_date;
+            const totalDurationDiv = document.querySelector('#totalDuration');
+            totalDurationDiv.innerHTML = "<b>Duration:</b> " + data.total_duration + ' ' + data.total_duration_unit + '(s)';
 
-            const updateDate = document.querySelector('#updateDate');
-            updateDate.textContent = "Updated Date: " + replaceNull(data.update_date);
+            const createDateDiv = document.querySelector('#createDate');
+            createDateDiv.innerHTML = "<b>Crated Date:</b> " + data.create_date;
+
+            const updateDateDiv = document.querySelector('#updateDate');
+            updateDateDiv.innerHTML = "<b>Updated Date:</b> " + replaceNull(data.update_date);
 
             const editWorkoutButton = document.querySelector('#editWorkoutButton');
             editWorkoutButton.addEventListener('click', ()=>{

@@ -30,15 +30,20 @@ if (curPage.includes('goals.html')) {
                 const listTag = document.querySelector('#goal_list');
     
                 // creating goals card
-                const div = document.createElement('div')
-                const title = document.createElement('h4')
-                title.textContent = goal.sport_type + ' / ' + goal.goal_name + ' / ' + goal.period + ' / ' + goal.period_type + '/' + removeTime(goal.start_date) + '/' + removeTime(goal.end_date) + ' / ' + goal.target_distance + goal.target_distance_unit + '/ progress: ' + (progress*100).toFixed(2) + '%' ;
+                const div = document.createElement('div');
+                const info = document.createElement('div');
+                let sportType = (goal.sport_type).charAt(0).toUpperCase() + (goal.sport_type).slice(1);
+                info.innerHTML = 
+                    '<h1>' + goal.goal_name + ' (' + (progress*100).toFixed(2) + '%)</h1>' + 
+                    sportType + ' for ' + goal.target_distance + ' ' + goal.target_distance_unit + '(s)<br>' +
+                    'Within ' + goal.period + ' ' + goal.period_type + '(s)<br>' + 
+                    'Start: ' + removeTime(goal.start_date) + ' End: ' + removeTime(goal.end_date);
                 
                 // styling created elements
                 div.classList = 'goal-div'
-                title.classList = 'goal-title'
+                info.classList = 'goal-title'
                 
-                div.appendChild(title);
+                div.appendChild(info);
                 
                 listTag.appendChild(div);
                 
@@ -71,32 +76,34 @@ if (curPage.includes('goal_view.html')) {
             let progress = getGoalProgress(data, listOfWorkout);
             progress = (progress*100).toFixed(2);
 
-            const goalName = document.querySelector('#goalName');
-            goalName.textContent = "Goal Name: " + data.goal_name;
+            const goalNameDiv = document.querySelector('#goalName');
+            let goalName = data.goal_name;
+            goalNameDiv.innerHTML = "<b>Goal Name:</b> " + goalName.charAt(0).toUpperCase() + goalName.slice(1);
 
-            const sportType = document.querySelector('#sportType');
-            sportType.textContent = "Sport Type: " + data.sport_type;
+            const sportTypeDiv = document.querySelector('#sportType');
+            let sportType = data.sport_type;
+            sportTypeDiv.innerHTML = "<b>Sport Type:</b> " + sportType.charAt(0).toUpperCase() + sportType.slice(1);
 
-            const period = document.querySelector('#period');
-            period.textContent = "Period: " + data.period + ' ' + data.period_type;
+            const periodDiv = document.querySelector('#period');
+            periodDiv.innerHTML = "<b>Period:</b> " + data.period + ' ' + data.period_type + '(s)';
 
-            const startDate = document.querySelector('#startDate');
-            startDate.textContent = "Start Date: " + removeTime(data.start_date);
+            const startDateDiv = document.querySelector('#startDate');
+            startDateDiv.innerHTML = "<b>Start Date:</b> " + removeTime(data.start_date);
 
-            const endDate = document.querySelector('#endDate');
-            endDate.textContent = "End Date: " + removeTime(data.end_date);
+            const endDateDiv = document.querySelector('#endDate');
+            endDateDiv.innerHTML = "<b>End Date:</b> " + removeTime(data.end_date);
 
-            const targetDetails = document.querySelector('#targetDetails');
-            targetDetails.textContent = "Target: " + data.target_distance + ' ' + data.target_distance_unit;
+            const targetDetailsDiv = document.querySelector('#targetDetails');
+            targetDetailsDiv.innerHTML = "<b>Target:</b> " + data.target_distance + ' ' + data.target_distance_unit + '(s)';
 
-            const yourProgress = document.querySelector('#yourProgress');
-            yourProgress.textContent = "Your Progress: " + progress.toString() + "%";
+            const yourProgressDiv = document.querySelector('#yourProgress');
+            yourProgressDiv.innerHTML = "<b>Your Progress:</b> " + progress.toString() + "%";
 
-            const createDate = document.querySelector('#createDate');
-            createDate.textContent = "Crated Date: " + data.create_date;
+            const createDateDiv = document.querySelector('#createDate');
+            createDateDiv.innerHTML = "<b>Crated Date:</b> " + data.create_date;
 
-            const updateDate = document.querySelector('#updateDate');
-            updateDate.textContent = "Updated Date: " + replaceNull(data.update_date);
+            const updateDateDiv = document.querySelector('#updateDate');
+            updateDateDiv.innerHTML = "<b>Updated Date:</b> " + replaceNull(data.update_date);
 
             const editGoalButton = document.querySelector('#editGoalButton');
             editGoalButton.addEventListener('click', ()=>{

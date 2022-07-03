@@ -8,7 +8,7 @@
 - Google Captcha
 
 ## Installation
-- No installation is rerequired
+- No installation is required
 
 
 ## Usage
